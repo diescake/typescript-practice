@@ -104,3 +104,43 @@
 
   type PartialPart = MyPartial<Part>
 }
+
+// Q13
+{
+  const createObj = <T>(obj: T) => {
+    let o = {} as {[K in keyof T]: string}
+
+    for (const key in obj) {
+      o[key] = String(obj[key]);
+    }
+    return o;
+  }
+
+  const anotherFun = createObj;
+}
+
+// Q14
+// 省略
+
+// Q15
+{
+  const arr = (args: any[]) => {}
+  // const arr = <T extends any[]>(args: T) => {}
+  arr(['a', 1])
+}
+
+// 省略
+
+// Q30
+{
+  type OnlySpecificProperty<T, U> = Pick<T, { [K in keyof T]: T[K] extends U ? K : never }[keyof T]>;
+
+  const regions = {
+    sister: 'kanagawa',
+    me: 'tokyo',
+    mother: 'tokyo',
+    father: 'hokkaido',
+  } as const
+
+  type Result = OnlySpecificProperty<typeof regions, 'tokyo'>
+}
