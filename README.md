@@ -1,2 +1,3 @@
 # typescript-practice
-Answer the TypeScriptPractice
+
+Answer the [TypeScriptPractice](https://gist.github.com/kenmori/8cea4b82dd12ad31f565721c9c456662)
